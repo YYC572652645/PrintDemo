@@ -1,14 +1,14 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "templatesetup.h"
+#include "ui_templatesetup.h"
 #include "QInputDialog"
 #include "globaldef.h"
 #include <QDebug>
 
 /*****************      构造函数               ******************/
-MainWindow::MainWindow(QWidget *parent) :
+TemplateSetUp::TemplateSetUp(QWidget *parent) :
     QMainWindow(parent), selectIndex(INVALIDVALUE),typeFlage(INVALIDVALUE),
     selectLabelIndex(INVALIDVALUE),
-    ui(new Ui::MainWindow)
+    ui(new Ui::templatesetup)
 {
     ui->setupUi(this);
 
@@ -18,13 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 /*****************      析构函数               ******************/
-MainWindow::~MainWindow()
+TemplateSetUp::~TemplateSetUp()
 {
     delete ui;
 }
 
 /*****************      添加               ******************/
-void MainWindow::on_pushButtonAdd_clicked()
+void TemplateSetUp::on_pushButtonAdd_clicked()
 {
     bool ok;
     QString text = QInputDialog::getText(this, "系统提示", "请输入模板名称", QLineEdit::Normal, QString::null, &ok);
@@ -38,7 +38,7 @@ void MainWindow::on_pushButtonAdd_clicked()
 }
 
 /*****************      删除               ******************/
-void MainWindow::on_pushButtonSub_clicked()
+void TemplateSetUp::on_pushButtonSub_clicked()
 {
     ui->listWidgetTemplate->removeItemWidget(ui->listWidgetTemplate->currentItem());
 
@@ -46,7 +46,7 @@ void MainWindow::on_pushButtonSub_clicked()
 }
 
 /*****************      初始化绘图控件      ******************/
-void MainWindow::initWidgetPaint()
+void TemplateSetUp::initWidgetPaint()
 {
     ui->widgetPaint->axisRect()->setupFullAxesBox(true);  //显示为四周坐标框
     ui->widgetPaint->setBackground(Qt::white);            //设置bei景色为白色
@@ -71,7 +71,7 @@ void MainWindow::initWidgetPaint()
 }
 
 /*****************      初始化属性页控件    ******************/
-void MainWindow::initWidgetProperty()
+void TemplateSetUp::initWidgetProperty()
 {
     varManager = new QtVariantPropertyManager(ui->widgetProperty);
 
@@ -112,13 +112,13 @@ void MainWindow::initWidgetProperty()
 }
 
 /*****************      连接信号与槽        ******************/
-void MainWindow::initConnect()
+void TemplateSetUp::initConnect()
 {
     connect(varManager, SIGNAL(valueChanged(QtProperty*,QVariant)), this, SLOT(propertyValueChanged(QtProperty*,QVariant)));
 }
 
 /*****************      点击列表框中控件     ******************/
-void MainWindow::on_listWidgetControl_clicked(const QModelIndex &index)
+void TemplateSetUp::on_listWidgetControl_clicked(const QModelIndex &index)
 {
     if(ui->widgetPaint->isHidden()) return;
 
@@ -144,7 +144,7 @@ void MainWindow::on_listWidgetControl_clicked(const QModelIndex &index)
 }
 
 /*****************      事件过滤            ******************/
-bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+bool TemplateSetUp::eventFilter(QObject *watched, QEvent *event)
 {
     static QPoint lastPoint[TYPEMAX];
 
@@ -216,28 +216,30 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 }
 
 /*****************      属性页槽函数         ******************/
-void MainWindow::propertyValueChanged(QtProperty *property, const QVariant &value)
+void TemplateSetUp::propertyValueChanged(QtProperty *property, const QVariant &value)
 {
     if(selectIndex == INVALIDVALUE)     return;
     if(selectIndex >= textLabel.size()) return;
     if(typeFlage == INVALIDVALUE)       return;
 
-    static QFont font = QFont("ZYSong", 16);
-
-    if(FAMILY    == propertyData[property]) font.setFamily(value.toString());
-    if(POINTSIZE == propertyData[property]) font.setPointSize(value.toInt());
-    if(BOLD      == propertyData[property]) font.setBold(value.toBool());
-    if(ITALIC    == propertyData[property]) font.setItalic(value.toBool());
-    if(UNDERLINE == propertyData[property]) font.setUnderline(value.toBool());
-    if(STRIKEOUT == propertyData[property]) font.setStrikeOut(value.toBool());
-    if(KERNING   == propertyData[property]) font.setKerning(value.toBool());
-
-    switch(typeFlage)
+    //设置字体
     {
-    case TEXTTYPE:    textLabel[selectIndex]->setFont(font);     break;
-    case BINGLITYPE:  bingLiLabel[selectIndex]->setFont(font);   break;
-    case BARCODETYPE: barCodeLabel[selectIndex]->setFont(font);  break;
-    case QRCODETYPE:  qrCodeLabel[selectIndex]->setFont(font);   break;
+        static QFont font = QFont("ZYSong", 16);
+        if(FAMILY    == propertyData[property]) font.setFamily(value.toString());
+        if(POINTSIZE == propertyData[property]) font.setPointSize(value.toInt());
+        if(BOLD      == propertyData[property]) font.setBold(value.toBool());
+        if(ITALIC    == propertyData[property]) font.setItalic(value.toBool());
+        if(UNDERLINE == propertyData[property]) font.setUnderline(value.toBool());
+        if(STRIKEOUT == propertyData[property]) font.setStrikeOut(value.toBool());
+        if(KERNING   == propertyData[property]) font.setKerning(value.toBool());
+
+        switch(typeFlage)
+        {
+        case TEXTTYPE:    textLabel[selectIndex]->setFont(font);     break;
+        case BINGLITYPE:  bingLiLabel[selectIndex]->setFont(font);   break;
+        case BARCODETYPE: barCodeLabel[selectIndex]->setFont(font);  break;
+        case QRCODETYPE:  qrCodeLabel[selectIndex]->setFont(font);   break;
+        }
     }
 
     if(typeFlage == TEXTTYPE && property == propertyList.first())
@@ -247,13 +249,13 @@ void MainWindow::propertyValueChanged(QtProperty *property, const QVariant &valu
 }
 
 /*****************      生成条形码           ******************/
-void MainWindow::generateBarCode(QString number)
+void TemplateSetUp::generateBarCode(QString number)
 {
 
 }
 
 /*****************      生成二维码           ******************/
-const QImage MainWindow::generateQrCode(QString number)
+const QImage TemplateSetUp::generateQrCode(QString number)
 {
     if (number.isEmpty())        return QImage();
     if (qrCodeLabel.size() == 0) return QImage();
@@ -298,22 +300,23 @@ const QImage MainWindow::generateQrCode(QString number)
         qrCodeLabel[i]->setPixmap(QPixmap::fromImage(mainImg));
     }
 
+    bingLiLabel.first()->setText("123456789");
+
     ui->widgetControl->clearBox();
 
     return mainImg;
 }
 
 /*****************      打印条形码           ******************/
-void MainWindow::printBarCode(QString number)
+void TemplateSetUp::printBarCode(QString number)
 {
 
 }
 
 /*****************      打印二维码           ******************/
-void MainWindow::printQrCode(QPixmap & pixmap)
+void TemplateSetUp::printQrCode(QPixmap & pixmap)
 {
     QPrinter printer;                               //构建新对象
-
     QPainter painter(&printer);                     //在打印机中绘制图像
     QRect rect = painter.viewport();                //获取Qpainter对象的矩形区域
     QSize size = pixmap.size();                     //获取图片的大小
@@ -326,17 +329,17 @@ void MainWindow::printQrCode(QPixmap & pixmap)
 }
 
 /*****************      打印图像             ******************/
-void MainWindow::on_pushButtonPrint_clicked()
+void TemplateSetUp::on_pushButtonPrint_clicked()
 {
-    generateQrCode("18720725827");
+    generateQrCode("123456789");
 
     QPixmap printPixMap = QWidget::grab(QRect(STARTPOINT.x(), STARTPOINT.y(), ui->widgetControl->width() - PAINTDATA , ui->widgetControl->height() - PAINTDATA));
 
-    //this->printQrCode(printPixMap);
+    this->printQrCode(printPixMap);
 }
 
 /*****************      删除控件             ******************/
-void MainWindow::on_actionDelete_triggered()
+void TemplateSetUp::on_actionDelete_triggered()
 {
     if(selectLabelIndex == INVALIDVALUE) return;
 

@@ -15,7 +15,7 @@ const static QString KERNING   = "Kerning";
 
 const static int    INVALIDVALUE = -1;           //无用值
 const static int    PAINTDATA =  32;             //绘图补偿值
-const static QPoint STARTPOINT = QPoint(39, 47); //绘图开始点
+const static QPoint STARTPOINT = QPoint(40, 60); //绘图开始点
 
 
 

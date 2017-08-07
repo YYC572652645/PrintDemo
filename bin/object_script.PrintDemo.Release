@@ -1,6 +1,6 @@
 INPUT(
 ./release\main.o
-./release\mainwindow.o
+./release\templatesetup.o
 ./release\qcustomplot.o
 ./release\qselectwidget.o
 ./release\movewidgetcontrol.o
@@ -24,7 +24,7 @@ INPUT(
 ./release\qtpropertybrowserutils.o
 ./release\qrc_qtpropertybrowser.o
 ./release\qrc_res.o
-./release\moc_mainwindow.o
+./release\moc_templatesetup.o
 ./release\moc_qcustomplot.o
 ./release\moc_qselectwidget.o
 ./release\moc_movewidgetcontrol.o

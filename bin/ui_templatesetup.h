@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
+** Form generated from reading UI file 'templatesetup.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.6.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MAINWINDOW_H
-#define UI_MAINWINDOW_H
+#ifndef UI_TEMPLATESETUP_H
+#define UI_TEMPLATESETUP_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -30,7 +30,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_templatesetup
 {
 public:
     QAction *actionDelete;
@@ -69,16 +69,19 @@ public:
     QtTreePropertyBrowser *widgetProperty;
     QToolBar *toolBar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *templatesetup)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(899, 612);
-        MainWindow->setMinimumSize(QSize(899, 612));
-        MainWindow->setMaximumSize(QSize(899, 612));
-        actionDelete = new QAction(MainWindow);
+        if (templatesetup->objectName().isEmpty())
+            templatesetup->setObjectName(QStringLiteral("templatesetup"));
+        templatesetup->resize(899, 612);
+        templatesetup->setMinimumSize(QSize(899, 612));
+        templatesetup->setMaximumSize(QSize(899, 612));
+        actionDelete = new QAction(templatesetup);
         actionDelete->setObjectName(QStringLiteral("actionDelete"));
-        centralWidget = new QWidget(MainWindow);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/image/image/delete.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        actionDelete->setIcon(icon);
+        centralWidget = new QWidget(templatesetup);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_6 = new QVBoxLayout(centralWidget);
         verticalLayout_6->setSpacing(6);
@@ -241,9 +244,9 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(pushButtonAdd->sizePolicy().hasHeightForWidth());
         pushButtonAdd->setSizePolicy(sizePolicy);
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/image/image/plus.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButtonAdd->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/image/image/plus.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonAdd->setIcon(icon1);
         pushButtonAdd->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(pushButtonAdd);
@@ -252,9 +255,9 @@ public:
         pushButtonSub->setObjectName(QStringLiteral("pushButtonSub"));
         sizePolicy.setHeightForWidth(pushButtonSub->sizePolicy().hasHeightForWidth());
         pushButtonSub->setSizePolicy(sizePolicy);
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/image/image/delete.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButtonSub->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/image/image/delete.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonSub->setIcon(icon2);
         pushButtonSub->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(pushButtonSub);
@@ -273,6 +276,7 @@ public:
 "    height:40px;\n"
 "    font-size:28px;\n"
 "}"));
+        labelTemplateTitle->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(labelTemplateTitle);
 
@@ -309,6 +313,9 @@ public:
 "    height:40px;\n"
 "    font-size:28px;\n"
 "}"));
+        labelTitle->setLineWidth(1);
+        labelTitle->setAlignment(Qt::AlignCenter);
+        labelTitle->setWordWrap(false);
 
         verticalLayout->addWidget(labelTitle);
 
@@ -334,6 +341,7 @@ public:
 "{\n"
 "    background-color:rgb(9,150,200,255);\n"
 "}"));
+        listWidgetControl->setLineWidth(1);
 
         verticalLayout->addWidget(listWidgetControl);
 
@@ -354,57 +362,58 @@ public:
 
         verticalLayout_6->addLayout(horizontalLayout_3);
 
-        MainWindow->setCentralWidget(centralWidget);
-        toolBar = new QToolBar(MainWindow);
+        templatesetup->setCentralWidget(centralWidget);
+        toolBar = new QToolBar(templatesetup);
         toolBar->setObjectName(QStringLiteral("toolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        toolBar->setMovable(false);
+        templatesetup->addToolBar(Qt::TopToolBarArea, toolBar);
 
         toolBar->addAction(actionDelete);
 
-        retranslateUi(MainWindow);
+        retranslateUi(templatesetup);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(templatesetup);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *templatesetup)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionDelete->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244", 0));
+        templatesetup->setWindowTitle(QApplication::translate("templatesetup", "MainWindow", 0));
+        actionDelete->setText(QApplication::translate("templatesetup", "\345\210\240\351\231\244", 0));
 #ifndef QT_NO_TOOLTIP
-        actionDelete->setToolTip(QApplication::translate("MainWindow", "\345\210\240\351\231\244", 0));
+        actionDelete->setToolTip(QApplication::translate("templatesetup", "\345\210\240\351\231\244", 0));
 #endif // QT_NO_TOOLTIP
         groupBox_2->setTitle(QString());
         groupBox_3->setTitle(QString());
-        pushButtonOk->setText(QApplication::translate("MainWindow", "\347\241\256\345\256\232", 0));
-        pushButtonCancel->setText(QApplication::translate("MainWindow", "\345\217\226\346\266\210", 0));
-        pushButtonPrint->setText(QApplication::translate("MainWindow", "\346\211\223\345\215\260", 0));
+        pushButtonOk->setText(QApplication::translate("templatesetup", "\347\241\256\345\256\232", 0));
+        pushButtonCancel->setText(QApplication::translate("templatesetup", "\345\217\226\346\266\210", 0));
+        pushButtonPrint->setText(QApplication::translate("templatesetup", "\346\211\223\345\215\260", 0));
         groupBox->setTitle(QString());
-        pushButtonAdd->setText(QApplication::translate("MainWindow", "  \346\267\273\345\212\240\346\250\241\346\235\277", 0));
-        pushButtonSub->setText(QApplication::translate("MainWindow", "  \345\210\240\351\231\244\346\250\241\346\235\277", 0));
-        labelTemplateTitle->setText(QApplication::translate("MainWindow", "            \346\250\241\346\235\277\345\220\215\347\247\260", 0));
-        labelTitle->setText(QApplication::translate("MainWindow", "             \345\267\245\345\205\267\347\256\261", 0));
+        pushButtonAdd->setText(QApplication::translate("templatesetup", "  \346\267\273\345\212\240\346\250\241\346\235\277", 0));
+        pushButtonSub->setText(QApplication::translate("templatesetup", "  \345\210\240\351\231\244\346\250\241\346\235\277", 0));
+        labelTemplateTitle->setText(QApplication::translate("templatesetup", "\346\250\241\346\235\277\345\220\215\347\247\260", 0));
+        labelTitle->setText(QApplication::translate("templatesetup", "\345\267\245\345\205\267\347\256\261", 0));
 
         const bool __sortingEnabled = listWidgetControl->isSortingEnabled();
         listWidgetControl->setSortingEnabled(false);
         QListWidgetItem *___qlistwidgetitem = listWidgetControl->item(0);
-        ___qlistwidgetitem->setText(QApplication::translate("MainWindow", "\346\226\207\345\255\227", 0));
+        ___qlistwidgetitem->setText(QApplication::translate("templatesetup", "\346\226\207\345\255\227", 0));
         QListWidgetItem *___qlistwidgetitem1 = listWidgetControl->item(1);
-        ___qlistwidgetitem1->setText(QApplication::translate("MainWindow", "\347\227\205\347\220\206\345\217\267", 0));
+        ___qlistwidgetitem1->setText(QApplication::translate("templatesetup", "\347\227\205\347\220\206\345\217\267", 0));
         QListWidgetItem *___qlistwidgetitem2 = listWidgetControl->item(2);
-        ___qlistwidgetitem2->setText(QApplication::translate("MainWindow", "\346\235\241\347\240\201", 0));
+        ___qlistwidgetitem2->setText(QApplication::translate("templatesetup", "\346\235\241\347\240\201", 0));
         QListWidgetItem *___qlistwidgetitem3 = listWidgetControl->item(3);
-        ___qlistwidgetitem3->setText(QApplication::translate("MainWindow", "\344\272\214\347\273\264\346\235\241\347\240\201", 0));
+        ___qlistwidgetitem3->setText(QApplication::translate("templatesetup", "\344\272\214\347\273\264\346\235\241\347\240\201", 0));
         listWidgetControl->setSortingEnabled(__sortingEnabled);
 
-        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0));
+        toolBar->setWindowTitle(QApplication::translate("templatesetup", "toolBar", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class templatesetup: public Ui_templatesetup {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif // UI_TEMPLATESETUP_H

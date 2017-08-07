@@ -1,6 +1,6 @@
 INPUT(
 ./debug\main.o
-./debug\mainwindow.o
+./debug\templatesetup.o
 ./debug\qcustomplot.o
 ./debug\qselectwidget.o
 ./debug\movewidgetcontrol.o
@@ -24,7 +24,7 @@ INPUT(
 ./debug\qtpropertybrowserutils.o
 ./debug\qrc_qtpropertybrowser.o
 ./debug\qrc_res.o
-./debug\moc_mainwindow.o
+./debug\moc_templatesetup.o
 ./debug\moc_qcustomplot.o
 ./debug\moc_qselectwidget.o
 ./debug\moc_movewidgetcontrol.o

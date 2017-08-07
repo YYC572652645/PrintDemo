@@ -14,7 +14,7 @@ DEFINES += HAVE_CONFIG_H
 INCLUDEPATH += include
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    templatesetup.cpp\
     qcustomplot/qcustomplot.cpp \
     qselectwidget/qselectwidget.cpp \
     movewidgetcontrol/movewidgetcontrol.cpp \
@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     QRcode/mask.c \
     QRcode/mmask.c
 
-HEADERS  += mainwindow.h \
+
+HEADERS  += templatesetup.h \
     qcustomplot/qcustomplot.h \
     globaldef.h \
     qselectwidget/qselectwidget.h \
@@ -65,9 +66,9 @@ HEADERS  += mainwindow.h \
     include/zconf.h \
     include/zint.h \
     include/zlib.h \
-    include/zutil.h
+    include/zutil.h \
 
-FORMS    += mainwindow.ui
+FORMS    += templatesetup.ui
 
 include($$PWD/qtpropertybrowser/src/qtpropertybrowser.pri)
 

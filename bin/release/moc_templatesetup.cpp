@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'mainwindow.h'
+** Meta object code from reading C++ file 'templatesetup.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.6.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../mainwindow.h"
+#include "../../templatesetup.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'mainwindow.h' doesn't include <QObject>."
+#error "The header file 'templatesetup.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.6.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,33 +18,33 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_MainWindow_t {
+struct qt_meta_stringdata_TemplateSetUp_t {
     QByteArrayData data[13];
-    char stringdata0[207];
+    char stringdata0[210];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_TemplateSetUp_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
+static const qt_meta_stringdata_TemplateSetUp_t qt_meta_stringdata_TemplateSetUp = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 8), // "sendType"
-QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 20), // "propertyValueChanged"
-QT_MOC_LITERAL(4, 42, 11), // "QtProperty*"
-QT_MOC_LITERAL(5, 54, 8), // "property"
-QT_MOC_LITERAL(6, 63, 5), // "value"
-QT_MOC_LITERAL(7, 69, 24), // "on_pushButtonAdd_clicked"
-QT_MOC_LITERAL(8, 94, 24), // "on_pushButtonSub_clicked"
-QT_MOC_LITERAL(9, 119, 28), // "on_listWidgetControl_clicked"
-QT_MOC_LITERAL(10, 148, 5), // "index"
-QT_MOC_LITERAL(11, 154, 26), // "on_pushButtonPrint_clicked"
-QT_MOC_LITERAL(12, 181, 25) // "on_actionDelete_triggered"
+QT_MOC_LITERAL(0, 0, 13), // "TemplateSetUp"
+QT_MOC_LITERAL(1, 14, 8), // "sendType"
+QT_MOC_LITERAL(2, 23, 0), // ""
+QT_MOC_LITERAL(3, 24, 20), // "propertyValueChanged"
+QT_MOC_LITERAL(4, 45, 11), // "QtProperty*"
+QT_MOC_LITERAL(5, 57, 8), // "property"
+QT_MOC_LITERAL(6, 66, 5), // "value"
+QT_MOC_LITERAL(7, 72, 24), // "on_pushButtonAdd_clicked"
+QT_MOC_LITERAL(8, 97, 24), // "on_pushButtonSub_clicked"
+QT_MOC_LITERAL(9, 122, 28), // "on_listWidgetControl_clicked"
+QT_MOC_LITERAL(10, 151, 5), // "index"
+QT_MOC_LITERAL(11, 157, 26), // "on_pushButtonPrint_clicked"
+QT_MOC_LITERAL(12, 184, 25) // "on_actionDelete_triggered"
 
     },
-    "MainWindow\0sendType\0\0propertyValueChanged\0"
+    "TemplateSetUp\0sendType\0\0propertyValueChanged\0"
     "QtProperty*\0property\0value\0"
     "on_pushButtonAdd_clicked\0"
     "on_pushButtonSub_clicked\0"
@@ -54,7 +54,7 @@ QT_MOC_LITERAL(12, 181, 25) // "on_actionDelete_triggered"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_MainWindow[] = {
+static const uint qt_meta_data_TemplateSetUp[] = {
 
  // content:
        7,       // revision
@@ -92,10 +92,10 @@ static const uint qt_meta_data_MainWindow[] = {
        0        // eod
 };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void TemplateSetUp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        MainWindow *_t = static_cast<MainWindow *>(_o);
+        TemplateSetUp *_t = static_cast<TemplateSetUp *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->sendType((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -111,8 +111,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (MainWindow::*_t)(int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::sendType)) {
+            typedef void (TemplateSetUp::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&TemplateSetUp::sendType)) {
                 *result = 0;
                 return;
             }
@@ -120,26 +120,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     }
 }
 
-const QMetaObject MainWindow::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow.data,
-      qt_meta_data_MainWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject TemplateSetUp::staticMetaObject = {
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_TemplateSetUp.data,
+      qt_meta_data_TemplateSetUp,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *MainWindow::metaObject() const
+const QMetaObject *TemplateSetUp::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MainWindow::qt_metacast(const char *_clname)
+void *TemplateSetUp::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata0))
-        return static_cast<void*>(const_cast< MainWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_TemplateSetUp.stringdata0))
+        return static_cast<void*>(const_cast< TemplateSetUp*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 
-int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int TemplateSetUp::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -157,7 +157,7 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MainWindow::sendType(int _t1)
+void TemplateSetUp::sendType(int _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

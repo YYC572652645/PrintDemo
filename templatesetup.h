@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef TEMPLATESETUP_H
+#define TEMPLATESETUP_H
 
 #include <QMainWindow>
 #include <QLabel>
@@ -7,16 +7,16 @@
 #include "qtvariantproperty.h"
 
 namespace Ui {
-class MainWindow;
+class templatesetup;
 }
 
-class MainWindow : public QMainWindow
+class TemplateSetUp : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    explicit TemplateSetUp(QWidget *parent = 0);
+    ~TemplateSetUp();
 
 signals:
     void sendType(int);
@@ -36,7 +36,7 @@ private slots:
     void on_actionDelete_triggered();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::templatesetup *ui;
 
     QRcode *qrcode;                                    //生成二维码对象
     QList<QLabel*>textLabel;                           //文字
@@ -51,7 +51,6 @@ private:
     int selectIndex;                                   //被选中的下标
     int typeFlage;                                     //被选中的类型
 
-
  private:
     void initWidgetPaint();                             //初始化绘图框
     void initWidgetProperty();                          //初始化属性框
@@ -63,4 +62,4 @@ private:
     void printQrCode(QPixmap & pixmap);                 //打印二维码
 };
 
-#endif // MAINWINDOW_H
+#endif // TEMPLATESETUP_H
