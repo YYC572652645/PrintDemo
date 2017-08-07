@@ -90,7 +90,7 @@ void TemplateSetUp::initWidgetProperty()
     item = varManager->addProperty(QVariant::Size, QStringLiteral("大小："));
     groupItem->addSubProperty(item);
     propertyData[item] = QStringLiteral("大小：");
-    item->setValue(QSize(100, 100));
+    item->setValue(STARTSIZE);
     for(int i = 0; i < item->subProperties().size(); i ++)
     {
         propertyData[item->subProperties().at(i)] = item->subProperties().at(i)->propertyName();
@@ -99,7 +99,7 @@ void TemplateSetUp::initWidgetProperty()
     //设置字体
     item = varManager->addProperty(QVariant::Font, QStringLiteral("字体："));
     groupItem->addSubProperty(item);
-    item->setValue("宋体, 16");
+    item->setValue(STARTFONT);
     for(int i = 0; i < item->subProperties().size(); i ++)
     {
         propertyData[item->subProperties().at(i)] = item->subProperties().at(i)->propertyName();
@@ -124,7 +124,9 @@ void TemplateSetUp::on_listWidgetControl_clicked(const QModelIndex &index)
 
     QLabel * label = new QLabel(this);   //声明一个Label
 
-    label->setFont(QFont("ZYSong", 16)); //设置显示字体
+    label->setFont(STARTFONT);           //设置显示字体
+
+    label->setScaledContents(true);      //设置自适应
 
     label->installEventFilter(this);     //注册监听事件
 
@@ -224,7 +226,7 @@ void TemplateSetUp::propertyValueChanged(QtProperty *property, const QVariant &v
 
     //设置字体
     {
-        static QFont font = QFont("ZYSong", 16);
+        static QFont font = STARTFONT;
         if(FAMILY    == propertyData[property]) font.setFamily(value.toString());
         if(POINTSIZE == propertyData[property]) font.setPointSize(value.toInt());
         if(BOLD      == propertyData[property]) font.setBold(value.toBool());
@@ -240,6 +242,22 @@ void TemplateSetUp::propertyValueChanged(QtProperty *property, const QVariant &v
         case BARCODETYPE: barCodeLabel[selectIndex]->setFont(font);  break;
         case QRCODETYPE:  qrCodeLabel[selectIndex]->setFont(font);   break;
         }
+    }
+
+    //设置大小
+    {
+        static QSize size = STARTSIZE;
+        if(WIDTH  == propertyData[property]) size.setWidth(value.toInt());
+        if(HEIGHT == propertyData[property]) size.setHeight(value.toInt());
+
+        switch(typeFlage)
+        {
+        case TEXTTYPE:    textLabel[selectIndex]->setMinimumSize(size);     break;
+        case BINGLITYPE:  bingLiLabel[selectIndex]->setMinimumSize(size);   break;
+        case BARCODETYPE: barCodeLabel[selectIndex]->setMinimumSize(size);  break;
+        case QRCODETYPE:  qrCodeLabel[selectIndex]->setMinimumSize(size);   break;
+        }
+
     }
 
     if(typeFlage == TEXTTYPE && property == propertyList.first())
